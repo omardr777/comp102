@@ -1,5 +1,5 @@
 import tkinter as tk
 
-#im so awesome 
+#omar is totally not awesome
 root = tk.Tk()
 root.mainloop()
