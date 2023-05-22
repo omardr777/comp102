@@ -1,7 +1,7 @@
 import tkinter as tk
-from FirstPage import FirstPage 
-from SecondPage import SecondPage
-from LastPage import LastPage
+from pages.FirstPage import FirstPage 
+from pages.SecondPage import SecondPage
+from pages.LastPage import LastPage
 
 class MainWindow(tk.Tk):
     def __init__(self,*args,**kwargs):
