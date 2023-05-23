@@ -1,4 +1,6 @@
 import tkinter as tk
+from components.Checkbox import CheckBox
+
 class LastPage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
