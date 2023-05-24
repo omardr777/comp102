@@ -1,6 +1,6 @@
 import tkinter as tk
 
-class CustomButton(tk.Button):
+class Button(tk.Button):
     def __init__(self, master=None, **kwargs):
         # Customize the appearance
         kwargs['bg'] = 'blue'  # Set background color
