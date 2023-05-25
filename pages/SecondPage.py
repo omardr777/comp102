@@ -1,5 +1,7 @@
 import tkinter as tk
 from components.Checkbox import CheckBox
+from components.Textbox import TextBox
+from components.label import CustomLabel
 
 class SecondPage(tk.Frame):
     def __init__(self,parent,controller):
