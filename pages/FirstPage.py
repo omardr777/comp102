@@ -1,6 +1,7 @@
 import tkinter as tk
 from components.label import CustomLabel
 from components.Checkbox import CheckBox
+from components.Textbox import TextBox
 
 class FirstPage(tk.Frame):
     def __init__(self,parent,controller):
@@ -15,4 +16,7 @@ class FirstPage(tk.Frame):
 
         button = tk.Button(self, text="Go to Page 2",
                             command=lambda: controller.get_page("SecondPage"))
+        
+        testtextbox = TextBox(self)
+        testtextbox.pack()
         button.pack()
