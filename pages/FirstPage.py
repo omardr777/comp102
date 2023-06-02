@@ -6,33 +6,61 @@ class FirstPage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
         self.controller = controller
+        self.config_grid(self,1,2)
+        main_color = '#FCFCFC'
+        self['bg'] = main_color
+        welcomeLabel = CustomLabel(self, text="Welcome to the tourism guide in KSA")
+        welcomeLabel.configure(font=(welcomeLabel.cget('font').split()[0],18),bg='#3A7FF6',fg=main_color)
+        welcomeLabel.grid(row=0,column=0,sticky="nsew")
+
+        detail_container = tk.Frame(self)
+        detail_container.grid(row=0,column=1,sticky='nsew')
+        detail_container['bg'] = main_color
+        self.config_grid(detail_container,3,3)
+
+        inputs_frame = tk.Frame(detail_container)
+        inputs_frame.grid(row=1,column=1)
+        inputs_frame['bg'] = main_color
+        self.config_grid(inputs_frame,5,2)
+        
+        # Create gaps between rows in inputs_frame
+        CustomLabel(inputs_frame, text="").grid(row=1, column=0, pady=20)
+        CustomLabel(inputs_frame, text="").grid(row=3, column=0, pady=20)
+
         #You can display the components of page1 here 
-        label = CustomLabel(self, text="Page 1")
-        label.place(x=110,y=650)
+        label = CustomLabel(detail_container, text="Enter your details")
+        label.configure(font=(label.cget('font').split()[0],18,'bold'))
+        label.grid(row=0,column=1,sticky='s')
 
-        name_textbox = TextBox(self)
-        name_textbox.place(x=120,y=50)
+        name_label = CustomLabel(inputs_frame, text='Enter your name')
+        name_label.grid(row=0,column=0)
+        name_textbox = TextBox(inputs_frame)
+        name_textbox.grid(row=0,column=1)
 
-        nat_textbox=TextBox(self)
-        nat_textbox.place(x=120,y=100)
+        nat_label = CustomLabel(inputs_frame,text='Enter you Nationality')
+        nat_label.grid(row=1,column=0)
+        nat_textbox=TextBox(inputs_frame)
+        nat_textbox.grid(row=1,column=1)
 
-        age_textbox=TextBox(self)
-        age_textbox.place(x=120,y=150)
+        age_label = CustomLabel(inputs_frame,text='Enter you age')
+        age_label.grid(row=2,column=0)
+        age_textbox=TextBox(inputs_frame)
+        age_textbox.grid(row=2,column=1)
 
-        age_label = CustomLabel(self,text='Enter you age')
-        age_label.place(x=20,y=150)
 
-        name_label = CustomLabel(self, text='Enter your name')
-        name_label.place(x=15, y=50)
 
-        nat_label = CustomLabel(self,text='Enter you Nationality')
-        nat_label.place(x=0,y=100)
 
-        continue_button = Button(self, text="continue to page 2",
+        continue_button = Button(detail_container, text="Next page",
                             command=lambda: self.next_page(name_textbox.get(),nat_textbox.get(),age_textbox.get()))
-        continue_button.place(x=50,y=600)
+        continue_button.grid(row=2,column=1)
 
     def next_page(self,name,age,nationality):
         self.controller.set_user(name,nationality,age)
         print(self.controller.user)
         self.controller.get_page("SecondPage")
+
+    def config_grid(self,container,rows,columns):
+        for i in range(rows):
+            container.grid_rowconfigure(i,weight=1)
+        for i in range(columns):
+            container.grid_columnconfigure(i,weight=1)
