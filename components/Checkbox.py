@@ -3,6 +3,7 @@ import tkinter as tk
 class CheckBox(tk.Checkbutton):
     def __init__(self, master=None, **kwargs):
         kwargs['font'] = ('Normal',16,'bold')
-        kwargs['bg']='light blue'
+        kwargs['bg']='#3A7FF6'
+        kwargs['fg']='white'
         super().__init__(master, **kwargs)
 
