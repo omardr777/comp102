@@ -10,7 +10,7 @@ class MainWindow(tk.Tk):
         self.container = tk.Frame()
         self.container.grid(row=0,column=0,sticky='nesw')
 
-        # self.user
+        self.user = {}
 
         self.pages = {}
         for p in (FirstPage,SecondPage,LastPage):
@@ -26,6 +26,13 @@ class MainWindow(tk.Tk):
         page = self.pages[page_name]
         page.tkraise()
 
+    def set_user(self,name,nationality,age):
+        self.user['name'] = name
+        self.user['nationality'] = nationality
+        self.user['age'] = age
+
+        
 if __name__ == '__main__':
     app = MainWindow()
+    app.geometry('1920x1080')
     app.mainloop()
