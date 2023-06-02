@@ -49,11 +49,11 @@ class SecondPage(tk.Frame):
 
         ChoosingLabel = CustomLabel(self, text='Please choose the cities you want to discover')
         ChoosingLabel.grid(row=2, column=2, padx=200)
-
-
-        label = CustomLabel(self, text="Page 2")
-        label.grid(row=12, column=3)
         
         button = Button(self, text="Search",
                             command=lambda: controller.get_page("LastPage"))
+        button.grid(row=12, column=3)
+
+        button = Button(self, text="Go back",
+                            command=lambda: controller.get_page("FirstPage"))
         button.grid(row=13, column=3)
