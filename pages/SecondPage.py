@@ -16,7 +16,7 @@ class SecondPage(tk.Frame):
         width = 170
         height = 170
 
-        emptyLabel = CustomLabel(self, text='', height=10)
+        emptyLabel = tk.Label(self, height=7)
         emptyLabel.grid(row=0, column=0, rowspan=3)
         label1 = ImageLabel(self, image_path1, width, height)
         label1.grid(row=3, column=0, rowspan=5)
