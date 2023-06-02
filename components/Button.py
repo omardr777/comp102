@@ -7,5 +7,6 @@ class Button(tk.Button):
         kwargs['fg'] = 'white'  # Set foreground color
         kwargs['font'] = ('Arial', 16, 'bold')  # Set font
         kwargs['border'] = 0
+        kwargs['cursor'] = 'hand2'
         # Initialize the parent class (Button)
         super().__init__(master, **kwargs)
