@@ -12,6 +12,6 @@ class LastPage(tk.Frame):
         label = tk.Label(self, text="Page 3")
         label.pack(pady=10, padx=10)
             
-        button = tk.Button(self, text="Go to back to page 2",
+        button = tk.Button(self, text="Go back to page 2",
                             command=lambda: controller.get_page("SecondPage"))
         button.pack()
