@@ -56,7 +56,6 @@ class FirstPage(tk.Frame):
 
     def next_page(self,name,age,nationality):
         self.controller.set_user(name,nationality,age)
-        print(self.controller.user)
         self.controller.get_page("SecondPage")
 
     def config_grid(self,container,rows,columns):

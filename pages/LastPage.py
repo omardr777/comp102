@@ -3,6 +3,7 @@ from components.Checkbox import CheckBox
 from components.Textbox import TextBox
 from components.label import CustomLabel
 from components.Button import Button
+from components.ImageLabel import ImageLabel
 
 import pandas as pd
 
@@ -53,7 +54,6 @@ class LastPage(tk.Frame):
 
         back_button = Button(self, text="Go back", command=self.back_button)
         back_button.grid(row=1,column=0)
-        # back_button.pack()
 
 
     def update_selected_cities_labels(self):
@@ -65,16 +65,13 @@ class LastPage(tk.Frame):
         # here the cities buttons, temporarily will display buttons for each city the user has selected, it should be image buttons
         counter = 0
         for city in selected_cities:
-            print(counter)
             selected_cities_button = Button(self.buttons_frame, text=city,command = lambda city=city: self.display_city_info(city))
             selected_cities_button.grid(row=counter,column=1,pady=10)
             self.selected_cities_labels.append(selected_cities_button)
             counter += 1
     
     def display_city_info(self, city_name):
-        print(city_name)
         city_info = self.controller.fetch_city_data(city_name)
-        print(city_info)
 
         # Clear any existing labels
         for label in self.selected_city_infos:
@@ -89,9 +86,17 @@ class LastPage(tk.Frame):
             ("LandSight description", city_info['sight1Description']),
             ("Second landSight description", city_info['sight2Description']),
             ("Hotel", city_info['hotel']),
-            ("Another hotel", city_info['hotel2']),
             ("Hotel description", city_info['hotelDescription']),
-            ("Second hotel description", city_info['hotel2Description'])
+            ("Another hotel", city_info['hotel2']),
+            ("Second description", city_info['hotel2Description']),
+        ]
+
+        images = [
+            ("City", city_info['cityImage']),
+            ("LandSight to visit", city_info['landSightImage']),
+            ("Another landSight", city_info['landSightImage2']),
+            ("Hotel", city_info['hotelImage']),
+            ("Another hotel", city_info['hotelImage2']),
         ]
 
         for i, (row, data) in enumerate(rows):
@@ -105,6 +110,13 @@ class LastPage(tk.Frame):
             data_label.set_font_size(10,'')
             data_label.set_bg_fg('#FCFCFC','#515486')
             labels.append(data_label)
+
+            image_src = next((image[1] for index, image in enumerate(images) if image[0] == row), None)
+
+            if image_src:
+                image = ImageLabel(self.info_frame, f'Images/cities/{image_src}', width=75, height=75)
+                image.grid(row=i, column=2)
+                labels.append(image)
 
         # Clear any existing labels
         for label in self.selected_city_infos:

@@ -40,7 +40,6 @@ class MainWindow(tk.Tk):
         else:
             cities.append(city_name)
         self.selected_cities.set(",".join(cities))
-        print(self.selected_cities.get())
 
     def get_selected_cities(self):
         return self.selected_cities.get()
