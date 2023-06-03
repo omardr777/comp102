@@ -36,7 +36,7 @@ class LastPage(tk.Frame):
         self.selected_cities_labels.clear()
 
         selected_cities = self.selected_cities_var.get().split(',')[1:]
-
+        # here the cities buttons, temporarily will display buttons for each city the user has selected, it should be image buttons
         for city in selected_cities:
             selected_cities_label = Button(self, text=city,command = lambda city=city: self.display_city_info(city))
             selected_cities_label.pack()
@@ -48,6 +48,7 @@ class LastPage(tk.Frame):
         for item in self.selected_city_infos:
             item.destroy()
         self.selected_city_infos.clear()
+        # here the city information, temporarily will display labels,
         for key,val in city_info.items():
             city_info_label = CustomLabel(self, text=val)
             city_info_label.configure(font=(city_info_label.cget('font').split()[0],10,'bold'))
