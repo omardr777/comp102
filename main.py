@@ -14,9 +14,9 @@ class MainWindow(tk.Tk):
         self.container.pack(fill='both', expand=True)
 
         self.user = tk.StringVar()
-        self.pages = {}
         self.selected_cities = tk.StringVar()
         self.df = pd.read_csv('data.csv')
+        self.pages = {}
 
         for p in (FirstPage, SecondPage, LastPage):
             page_name = p.__name__
@@ -24,6 +24,7 @@ class MainWindow(tk.Tk):
             self.pages[page_name] = frame
             frame.grid(row=0, column=0, sticky='nesw')
         
+        # start with firstPage
         self.get_page('FirstPage')
 
     def get_page(self, page_name):
@@ -31,10 +32,10 @@ class MainWindow(tk.Tk):
         page.tkraise()
 
     def set_user(self, name, nationality, age):
-        self.user.set (value=name+','+nationality+','+age)
+        self.user.set (value=name+','+nationality+','+age)#omar,syrian,age
         
     def toggle_cities(self, city_name):
-        cities = self.selected_cities.get().split(",")
+        cities = self.selected_cities.get().split(",")#',Khobar,Ryiadh,' -> ['','Khobar','Ryiadh]
         if city_name in cities:
             cities.remove(city_name)
         else:

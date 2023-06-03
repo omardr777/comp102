@@ -10,12 +10,14 @@ class SecondPage(tk.Frame):
         tk.Frame.__init__(self,parent)
         self.controller = controller
         self['bg'] = '#FCFCFC'
+
+
         self.userinfo = tk.StringVar(value='')
         
-        def update_selected_cities(*args):
+        def update_user_info(*args): #'omar,syrian,10' -> ['omar','syrian',10]
             self.userinfo.set('Welcome '+self.controller.user.get().split(',')[0]+' please choose the cities you want to discover')
             
-        self.controller.user.trace("w", update_selected_cities)
+        self.controller.user.trace("w", update_user_info)
         
         #You can display the components of page1 here
         image_path1 = "Images/EastProvince.jpg"
@@ -56,15 +58,12 @@ class SecondPage(tk.Frame):
         ChoosingLabel.grid(row=2, column=2, padx=200)
         
         button = Button(self, text="Search",
-                            command=self.click_search_button)
+                            command=lambda: controller.get_page("LastPage"))
         button.grid(row=12, column=3)
 
         button = Button(self, text="Go back",
                             command=lambda: controller.get_page("FirstPage"))
         button.grid(row=13, column=3)
 
-    def click_search_button(self):
-        self.controller.get_page('LastPage')
-        # self.controller.fetch_data()
     
    

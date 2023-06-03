@@ -37,12 +37,12 @@ class FirstPage(tk.Frame):
         name_textbox = TextBox(inputs_frame)
         name_textbox.grid(row=0,column=1)
 
-        nat_label = CustomLabel(inputs_frame,text='Enter you Nationality')
+        nat_label = CustomLabel(inputs_frame,text='Enter your Nationality')
         nat_label.grid(row=1,column=0)
         nat_textbox=TextBox(inputs_frame)
         nat_textbox.grid(row=1,column=1)
 
-        age_label = CustomLabel(inputs_frame,text='Enter you age')
+        age_label = CustomLabel(inputs_frame,text='Enter your age')
         age_label.grid(row=2,column=0)
         age_textbox=TextBox(inputs_frame)
         age_textbox.grid(row=2,column=1)
