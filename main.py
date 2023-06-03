@@ -13,7 +13,7 @@ class MainWindow(tk.Tk):
         self.container.grid_columnconfigure(0, weight=1)
         self.container.pack(fill='both', expand=True)
 
-        self.user = {}
+        self.user = tk.StringVar()
         self.pages = {}
         self.selected_cities = tk.StringVar()
         self.df = pd.read_csv('data.csv')
@@ -31,10 +31,8 @@ class MainWindow(tk.Tk):
         page.tkraise()
 
     def set_user(self, name, nationality, age):
-        self.user['name'] = name
-        self.user['nationality'] = nationality
-        self.user['age'] = age
-
+        self.user.set (value=name+','+nationality+','+age)
+        
     def toggle_cities(self, city_name):
         cities = self.selected_cities.get().split(",")
         if city_name in cities:
