@@ -10,7 +10,12 @@ class SecondPage(tk.Frame):
         tk.Frame.__init__(self,parent)
         self.controller = controller
         self['bg'] = '#FCFCFC'
-        
+        self.userinfo = tk.StringVar(value='')
+        def update_selected_cities(*args):
+            self.userinfo.set('Welcome '+self.controller.user.get().split(',')[0]+' please choose the cities you want to discover')
+            print(self.userinfo.get())
+            
+        self.controller.user.trace("w", update_selected_cities)
         
         #You can display the components of page1 here
         image_path1 = "Images/EastProvince.jpg"
@@ -47,7 +52,7 @@ class SecondPage(tk.Frame):
         jeddah_checkbox = CheckBox(self, text="Jeddah",command=lambda:self.controller.toggle_cities(jeddah_checkbox['text'])) 
         jeddah_checkbox.grid(row=13, column=1)
 
-        ChoosingLabel = CustomLabel(self, text='Please choose the cities you want to discover')
+        ChoosingLabel = CustomLabel(self, textvariable=self.userinfo)
         ChoosingLabel.grid(row=2, column=2, padx=200)
         
         button = Button(self, text="Search",
