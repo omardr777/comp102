@@ -13,7 +13,7 @@ class SecondPage(tk.Frame):
         self.userinfo = tk.StringVar(value='')
         
         def update_selected_cities(*args):
-            self.userinfo.set('Welcome '+self.controller.user.get().split(',')[0]+' please choose the cities you want to discover')
+            self.userinfo.set('Welcome '+self.controller.user.get().split(',')[0]+', please choose the cities you want to discover')
             
         self.controller.user.trace("w", update_selected_cities)
         
