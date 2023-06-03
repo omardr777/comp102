@@ -16,7 +16,7 @@ class MainWindow(tk.Tk):
         self.user = {}
         self.pages = {}
         self.selected_cities = tk.StringVar()
-        self.df = pd.read_csv('data2.csv')
+        self.df = pd.read_csv('data.csv')
 
         for p in (FirstPage, SecondPage, LastPage):
             page_name = p.__name__
