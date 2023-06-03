@@ -53,7 +53,7 @@ class SecondPage(tk.Frame):
         jeddah_checkbox.grid(row=13, column=1)
 
         ChoosingLabel = CustomLabel(self, textvariable=self.userinfo)
-        ChoosingLabel.grid(row=2, column=2, padx=200)
+        ChoosingLabel.grid(row=2, column=2, padx=100)
         
         button = Button(self, text="Search",
                             command=self.click_search_button)
