@@ -26,7 +26,7 @@ class SecondPage(tk.Frame):
         label3 = ImageLabel(self, image_path3, width, height)
         label3.grid(row=10, column=0, rowspan=5) 
 
-        khobar_checkbox = CheckBox(self, text="Al-Khobar",command=lambda:self.controller.toggle_cities(khobar_checkbox['text'])) 
+        khobar_checkbox = CheckBox(self, text="Khobar",command=lambda:self.controller.toggle_cities(khobar_checkbox['text'])) 
         khobar_checkbox.grid(row=1, column=1)
         dammam_checkbox = CheckBox(self, text="Dammam",command=lambda:self.controller.toggle_cities(dammam_checkbox['text'])) 
         dammam_checkbox.grid(row=2, column=1)
@@ -35,7 +35,7 @@ class SecondPage(tk.Frame):
 
         riyadh_checkbox = CheckBox(self, text="Riyadh",command=lambda:self.controller.toggle_cities(riyadh_checkbox['text'])) 
         riyadh_checkbox.grid(row=6, column=1)
-        diriyah_checkbox = CheckBox(self, text="Al-Diriyah",command=lambda:self.controller.toggle_cities(diriyah_checkbox['text'])) 
+        diriyah_checkbox = CheckBox(self, text="Diriyah",command=lambda:self.controller.toggle_cities(diriyah_checkbox['text'])) 
         diriyah_checkbox.grid(row=7, column=1)
         kharj_checkbox = CheckBox(self, text="Al-Kharj",command=lambda:self.controller.toggle_cities(kharj_checkbox['text'])) 
         kharj_checkbox.grid(row=8, column=1)
@@ -51,11 +51,15 @@ class SecondPage(tk.Frame):
         ChoosingLabel.grid(row=2, column=2, padx=200)
         
         button = Button(self, text="Search",
-                            command=lambda: controller.get_page("LastPage"))
+                            command=self.click_search_button)
         button.grid(row=12, column=3)
 
         button = Button(self, text="Go back",
                             command=lambda: controller.get_page("FirstPage"))
         button.grid(row=13, column=3)
+
+    def click_search_button(self):
+        self.controller.get_page('LastPage')
+        # self.controller.fetch_data()
     
    
