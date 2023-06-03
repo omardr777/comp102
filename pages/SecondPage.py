@@ -40,9 +40,9 @@ class SecondPage(tk.Frame):
         kharj_checkbox = CheckBox(self, text="Al-Kharj",command=lambda:self.controller.toggle_cities(kharj_checkbox['text'])) 
         kharj_checkbox.grid(row=8, column=1)
 
-        mecca_checkbox = CheckBox(self, text="Mecca",command=lambda:self.controller.toggle_cities(mecca_checkbox['text'])) 
+        mecca_checkbox = CheckBox(self, text="Makkah",command=lambda:self.controller.toggle_cities(mecca_checkbox['text'])) 
         mecca_checkbox.grid(row=11, column=1)
-        medina_checkbox = CheckBox(self, text="Medina",command=lambda:self.controller.toggle_cities(medina_checkbox['text'])) 
+        medina_checkbox = CheckBox(self, text="Medinah",command=lambda:self.controller.toggle_cities(medina_checkbox['text'])) 
         medina_checkbox.grid(row=12, column=1)
         jeddah_checkbox = CheckBox(self, text="Jeddah",command=lambda:self.controller.toggle_cities(jeddah_checkbox['text'])) 
         jeddah_checkbox.grid(row=13, column=1)
