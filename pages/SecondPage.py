@@ -53,15 +53,15 @@ class SecondPage(tk.Frame):
         jeddah_checkbox.grid(row=13, column=1)
 
         ChoosingLabel = CustomLabel(self, textvariable=self.userinfo)
-        ChoosingLabel.grid(row=2, column=2, padx=100)
+        ChoosingLabel.place(x=500, y=50)
         
         button = Button(self, text="Search",
                             command=self.click_search_button)
-        button.grid(row=12, column=3)
+        button.grid(row=12, column=2, padx=900)
 
         button = Button(self, text="Go back",
                             command=lambda: controller.get_page("FirstPage"))
-        button.grid(row=13, column=3)
+        button.grid(row=13, column=2, padx=900)
 
     def click_search_button(self):
         self.controller.get_page('LastPage')
