@@ -28,23 +28,23 @@ class SecondPage(tk.Frame):
 
         KhobarLabel = CheckBox(self, text="Al-Khobar") 
         KhobarLabel.grid(row=1, column=1)
-        DammamLabel = CheckBox(self, text="Al-Dammam") 
+        DammamLabel = CheckBox(self, text="Dammam") 
         DammamLabel.grid(row=2, column=1)
         AhsaLabel = CheckBox(self, text="Al-Ahsa") 
         AhsaLabel.grid(row=3, column=1)
 
-        RiyadhLabel = CheckBox(self, text="Al-Riyadh") 
+        RiyadhLabel = CheckBox(self, text="Riyadh") 
         RiyadhLabel.grid(row=6, column=1)
         DiriyahLabel = CheckBox(self, text="Al-Diriyah") 
         DiriyahLabel.grid(row=7, column=1)
         KharjLabel = CheckBox(self, text="Al-Kharj") 
         KharjLabel.grid(row=8, column=1)
 
-        MakkahLabel = CheckBox(self, text="Al-Makkah") 
+        MakkahLabel = CheckBox(self, text="Mecca") 
         MakkahLabel.grid(row=11, column=1)
-        MadinahLabel = CheckBox(self, text="Al-Madinah") 
+        MadinahLabel = CheckBox(self, text="Medina") 
         MadinahLabel.grid(row=12, column=1)
-        JeddahLabel = CheckBox(self, text="Al-Jeddah") 
+        JeddahLabel = CheckBox(self, text="Jeddah") 
         JeddahLabel.grid(row=13, column=1)
 
         ChoosingLabel = CustomLabel(self, text='Please choose the cities you want to discover')
