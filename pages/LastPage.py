@@ -106,7 +106,7 @@ class LastPage(tk.Frame):
 
             data_label = CustomLabel(self.info_frame, text=data,wraplength=1250)
             data_label.grid(row=i, column=1, sticky='wesn')
-            data_label.set_font_size(10,'')
+            data_label.set_font_size(10,'bold')
             data_label.set_bg_fg('#FCFCFC','#515486')
             labels.append(data_label)
 
