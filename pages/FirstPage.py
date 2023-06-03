@@ -9,7 +9,7 @@ class FirstPage(tk.Frame):
         self.config_grid(self,1,2)
         main_color = '#FCFCFC'
         self['bg'] = main_color
-        welcomeLabel = CustomLabel(self, text="Welcome to the tourism guide in KSA")
+        welcomeLabel = CustomLabel(self, text="Welcome to The Tourism Guide in KSA")
         welcomeLabel.configure(font=(welcomeLabel.cget('font').split()[0],18),bg='#3A7FF6',fg=main_color)
         welcomeLabel.grid(row=0,column=0,sticky="nsew")
 

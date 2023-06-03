@@ -51,5 +51,6 @@ class MainWindow(tk.Tk):
 
 if __name__ == '__main__':
     app = MainWindow()
+    app.title('Tourism Guide')
     app.geometry('1920x1080')
     app.mainloop()
