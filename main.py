@@ -11,8 +11,11 @@ class MainWindow(tk.Tk):
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
         self.container.pack(fill='both', expand=True)
+
         self.user = {}
         self.pages = {}
+        self.selected_cities = []
+
         for p in (FirstPage, SecondPage, LastPage):
             page_name = p.__name__
             frame = p(parent=self.container, controller=self)
@@ -30,6 +33,15 @@ class MainWindow(tk.Tk):
         self.user['nationality'] = nationality
         self.user['age'] = age
 
+    def toggle_cities(self,city_name):
+            if city_name in self.selected_cities:
+                self.selected_cities.remove(city_name)
+            else:
+                self.selected_cities.append(city_name)
+            print(self.selected_cities)
+
+    def get_selected_cities(self):
+        return self.selected_cities
 
 if __name__ == '__main__':
     app = MainWindow()
